@@ -1,0 +1,9 @@
+#collage-items-wrapper {
+  #collage-items {
+    position: relative;
+    list-style: none;
+    .collage-item {
+      position:absolute;
+    }
+  }
+}
