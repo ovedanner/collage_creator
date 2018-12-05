@@ -1,3 +1,9 @@
+## Introduction
+
+A little collage editor where you can upload your photos, arrange them and print them.
+Very much still a work in progress!
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
