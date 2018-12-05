@@ -1,6 +1,6 @@
 ## Introduction
 
-A little collage editor where you can upload your photos, arrange them and print them.
+A little photo collage editor where you can upload your photos, arrange them and print them.
 Very much still a work in progress!
 
 
