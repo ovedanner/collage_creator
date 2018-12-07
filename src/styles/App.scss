@@ -10,10 +10,11 @@ body {
   .collage__list {
     position: relative;
     list-style: none;
-    margin-left: 13em;
+    margin-left: 18em;
     margin-top: 5em;
 
     .collage__item {
+      cursor: pointer;
       position: absolute;
     }
   }
@@ -22,7 +23,7 @@ body {
     position: fixed;
     top: 5em;
     left: 5em;
-    width: 5em;
+    width: 10em;
     padding: 1em;
     background-color: $grey;
     @include rounded();
@@ -32,15 +33,21 @@ body {
     }
 
     .collage__control-header {
+      text-align: center;
       margin-bottom: 1em;
     }
 
     .collage__control-list {
       list-style: none;
 
-      .collage__control {
-        cursor: pointer;
+      .collage__control-button {
+        width: 100%;
       }
     }
   }
+}
+
+.btn--blue {
+  color: white;
+  @include button($blue);
 }

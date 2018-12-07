@@ -15,3 +15,12 @@
     box-shadow: $top $left $blur $color;
   }
 }
+
+@mixin button($color) {
+  padding: 1em;
+  cursor: pointer;
+  background-color: $color;
+  text-decoration: none;
+  border: none;
+  @include rounded();
+}
