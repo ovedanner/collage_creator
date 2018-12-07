@@ -11,14 +11,9 @@ class CollageItem extends Component {
             canDrag: false,
         };
 
-        this.handleImageLoaded = this.handleImageLoaded.bind(this);
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.handleMouseUp = this.handleMouseUp.bind(this);
         this.handleMouseMove = this.handleMouseMove.bind(this);
-    }
-
-    handleImageLoaded(e) {
-
     }
 
     handleMouseDown(e) {
@@ -56,8 +51,6 @@ class CollageItem extends Component {
             left: x,
         };
 
-        console.log('rendering child');
-
         return (
             <li className="collage__item" style={style}>
                 <img
@@ -67,7 +60,6 @@ class CollageItem extends Component {
                     onMouseDown={this.handleMouseDown}
                     onMouseUp={this.handleMouseUp}
                     onMouseMove={this.handleMouseMove}
-                    onLoad={this.handleImageLoaded}
                 />
             </li>
         )

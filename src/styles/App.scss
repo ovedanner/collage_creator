@@ -1,10 +1,17 @@
 @import 'mixins';
 @import 'base';
 
+body {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, $grey 1px, transparent 1px), linear-gradient(to bottom, $grey 1px, transparent 1px);
+}
+
 .collage {
   .collage__list {
     position: relative;
     list-style: none;
+    margin-left: 13em;
+    margin-top: 5em;
 
     .collage__item {
       position: absolute;
@@ -13,12 +20,16 @@
 
   .collage__controls {
     position: fixed;
-    top: 50px;
-    left: 50px;
+    top: 5em;
+    left: 5em;
+    width: 5em;
     padding: 1em;
     background-color: $grey;
     @include rounded();
     @include box-shadow(4px, 4px, 8px);
+    @media print {
+      display: none;
+    }
 
     .collage__control-header {
       margin-bottom: 1em;

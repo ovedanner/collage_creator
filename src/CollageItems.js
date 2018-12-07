@@ -13,16 +13,14 @@ class CollageItems extends Component {
         const items = props.items.map((url) => {
             return {
                 url: url,
+                ref: React.createRef(),
                 x: 0,
                 y: 0,
-                width: 0,
-                height: 0,
             };
         });
         this.state = { items };
         this.organize = this.organize.bind(this);
         this.updatePosition = this.updatePosition.bind(this);
-        this.updateSize = this.updateSize.bind(this);
     }
 
     /**
@@ -47,21 +45,6 @@ class CollageItems extends Component {
         });
     }
 
-    updateSize(item, width, height) {
-        const itemToUpdate = this.state.items.find((i) => {
-            return i === item;
-        });
-
-        if (itemToUpdate) {
-            itemToUpdate.width = width;
-            itemToUpdate.height = height;
-        }
-
-        this.setState({
-            items: this.state.items,
-        });
-    }
-
     /**
      * Organizes collage items in a certain way.
      * @param shape
@@ -71,7 +54,7 @@ class CollageItems extends Component {
 
         switch (shape) {
             case 'rectangle':
-                organizer = new RectangleOrganizer(1);
+                organizer = new RectangleOrganizer();
                 break;
             default:
                 organizer = null;
@@ -87,9 +70,9 @@ class CollageItems extends Component {
         const items = this.state.items.map((item, idx) => (
             <CollageItem
                 key={uid(item, idx)}
+                ref={item.ref}
                 item={item}
-                updatePosition={this.updatePosition}
-                updateSize={this.updateSize}/>
+                updatePosition={this.updatePosition}/>
         ));
 
         return (
