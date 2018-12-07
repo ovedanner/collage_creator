@@ -7,15 +7,18 @@ class CollageItem extends Component {
     constructor(props) {
         super(props);
 
-        const { x, y } = props;
         this.state = {
-            x, y,
             canDrag: false,
         };
 
+        this.handleImageLoaded = this.handleImageLoaded.bind(this);
         this.handleMouseDown = this.handleMouseDown.bind(this);
         this.handleMouseUp = this.handleMouseUp.bind(this);
         this.handleMouseMove = this.handleMouseMove.bind(this);
+    }
+
+    handleImageLoaded(e) {
+
     }
 
     handleMouseDown(e) {
@@ -35,39 +38,39 @@ class CollageItem extends Component {
     handleMouseMove(e) {
         e.preventDefault();
         if (this.state.canDrag) {
-            const { x, y } = this.state;
+            const { item } = this.props;
+            let { x, y } = item;
 
-            this.setState({
-                x: x + e.movementX,
-                y: y + e.movementY,
-            });
+            x += e.movementX;
+            y += e.movementY;
+
+            this.props.updatePosition(item, x, y);
         }
     }
 
     render() {
-        const { x, y } = this.state;
+        const { item } = this.props;
+        const { x, y } = item;
         const style = {
             top: y,
             left: x,
         };
 
+        console.log('rendering child');
+
         return (
-            <li className="collage-item draggable" style={style}>
+            <li className="collage__item" style={style}>
                 <img
-                    src={this.props.url}
+                    src={item.url}
                     alt="collage-item"
                     onMouseLeave={this.handleMouseUp}
                     onMouseDown={this.handleMouseDown}
                     onMouseUp={this.handleMouseUp}
                     onMouseMove={this.handleMouseMove}
+                    onLoad={this.handleImageLoaded}
                 />
             </li>
         )
-    }
-
-    static defaultProps = {
-        x: 0,
-        y: 0,
     }
 }
 

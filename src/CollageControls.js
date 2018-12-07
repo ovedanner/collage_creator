@@ -16,10 +16,10 @@ class CollageControls extends Component {
 
     render() {
         return (
-            <div id="collage-controls-wrapper">
-                <h3>Controls</h3>
-                <ul id="collage-controls">
-                    <li className="controls" onClick={this.organizeInRectangle}>Rectangle</li>
+            <div className="collage__controls">
+                <h3 className="collage__control-header">Layout</h3>
+                <ul className="collage__control-list">
+                    <li className="collage__control" onClick={this.organizeInRectangle}>Rectangle</li>
                 </ul>
             </div>
         );

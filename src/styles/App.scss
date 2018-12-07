@@ -1,0 +1,35 @@
+@import 'mixins';
+@import 'base';
+
+.collage {
+  .collage__list {
+    position: relative;
+    list-style: none;
+
+    .collage__item {
+      position: absolute;
+    }
+  }
+
+  .collage__controls {
+    position: fixed;
+    top: 50px;
+    left: 50px;
+    padding: 1em;
+    background-color: $grey;
+    @include rounded();
+    @include box-shadow(4px, 4px, 8px);
+
+    .collage__control-header {
+      margin-bottom: 1em;
+    }
+
+    .collage__control-list {
+      list-style: none;
+
+      .collage__control {
+        cursor: pointer;
+      }
+    }
+  }
+}
