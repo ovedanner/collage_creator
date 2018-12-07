@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CollageItem from './CollageItem';
 import CollageControls from './CollageControls';
-import RectangleOrganizer from './organizers/RectangleOrganizer';
+import RectangleOrganizer from '../organizers/RectangleOrganizer';
 import { uid } from 'react-uid';
 
 /**
